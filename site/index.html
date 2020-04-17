@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <nav>navelement</nav>
+    <style>
+        p {
+            color: blue;
+            font-size: smaller;
+        }
+        p.blue {
+            color: crimson;
+        }
+        section > article {
+            color: coral;
+        }
+        article p {
+            color: darkgoldenrod;
+        }
+        .blue {
+            color: cornflowerblue;
+            text-align: end;
+        }
+        #top {
+            font-style: italic;
+        }
+        a:hover, a:active {
+            background-color: darkgoldenrod;
+        }
+    </style>
 </head>
 <body>
     <h1 id="top">HELLO FIRST!</h1>
-    <h2>navigator</h2>
+    <h2 class="blue red">navigator</h2>
     <section>
         <ol>
             <li><a href="#section1">gotosection1</a></li>
@@ -21,7 +46,7 @@
         <article>art1</article>
         <article>art2</article>
     </section>
-    <h2>second FIRST</h2>
+    <h2 class="blue">second FIRST</h2>
     <h2>dev from pro 2second try</h2>
     <h4>refresh</h4>
     <p id="myid">tag id</p>
@@ -66,6 +91,10 @@
     <div>
         <h2><a name="section4">section4</a></h2>
     </div>
+    <!--
+        comment
+    -->
+    <img src="https://static-cdn.pixlr.com/images/index/hero.jpg" width="600", height="600", alt="picture">
     <p>
         back to top: <a href="#top">backtotop</a>
     </p>
