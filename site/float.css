@@ -1,0 +1,40 @@
+div {
+    background-color: darkkhaki;
+    position: relative;
+    top: 60px;
+}
+p {
+    width: 50%;
+    height: 50px;
+    border: 1px solid black;
+    /* float: left; */
+    /* margin-left: 10px; */
+    padding: 10px;
+}
+#p1 {
+    background-color: coral;
+    /* float: right; */
+    height: 80px;
+    position: relative;
+    /* position: absolute; */
+    top: 50px;
+    left: 50px;
+}
+#p2 {
+    background-color: cornflowerblue;
+    /* float: left; */
+    height: 10px;
+}
+#p3 {
+    background-color: darkcyan;
+    clear: left;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#p4 {
+    background-color: darkolivegreen;
+}
+section {
+    clear: left;
+}
