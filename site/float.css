@@ -24,6 +24,7 @@ p {
     background-color: cornflowerblue;
     /* float: left; */
     height: 10px;
+    background-color: #000000;
 }
 #p3 {
     background-color: darkcyan;
