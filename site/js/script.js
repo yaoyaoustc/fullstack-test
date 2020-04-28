@@ -12,3 +12,21 @@ function b() {
 
 }
 a();
+var string = "hello";
+string += "world";
+console.log(string + "!");
+if (sidedish === undefined) {
+    sidedish = "whatever"; 
+}
+var facebook = {
+    name: "Facebook",
+    "stock of company":100,
+    ceo: {},
+    account:{},
+}
+function multiply(x, y) {
+    return x * y;
+}
+function test() {
+    console.log()
+}
