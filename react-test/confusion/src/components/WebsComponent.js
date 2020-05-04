@@ -1,42 +1,45 @@
 import React from 'react';
-import { Media } from 'reactstrap';
+import { Media, Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class Webs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            webs: [
-                {
-                    id:0,
-                    name: 'Google',
-                    image: 'assets/google-logo.png',
-                    category: 'search',
-                    description: 'Most common search engine'
-                },
-                {
-                    id:1,
-                    name: 'Wikipedia',
-                    image: 'assets/Wikipedia-logo.png',
-                    category: 'knowledge',
-                    description: 'Widely used knowledge database'
-                }
-            ], 
+            selectedWeb: null
         };
     }
 
+    onWebSelect(web) {
+        this.setState({ selectedWeb: web});
+    }
+
+    renderWeb(web) {
+        if (web != null)
+            return(
+                <Card>
+                    <CardImg top src={web.image} alt = {web.name}/>
+                    <CardBody>
+                        <CardTitle>{web.name}</CardTitle>
+                        <CardText>{web.description}</CardText>
+                    </CardBody>
+                </Card>
+            );
+        else
+            return(
+                <div></div>
+            );
+    }
+
     render() {
-        const webslist = this.state.webs.map((web) => {
+        const webslist = this.props.webs.map((web) => {
             return (
-                <div key={web.id} className="col-12 mt-5">
-                    <Media tag="li">
-                        <Media left middle>
-                             <Media object src={web.image} alt={web.name} />
-                        </Media>
-                        <Media body className="ml-5">
-                            <Media heading>{web.name}</Media>
-                            <p>{web.description}</p>
-                        </Media>
-                    </Media>
+                <div className="col-12 col-md m-1">
+                    <Card key={web.id} onClick={() => this.onWebSelect(web)}>
+                        <CardImg width="100%" src = {web.image} alt = {web.name} />
+                        <CardImgOverlay>
+                            <CardTitle>{web.name}</CardTitle>
+                        </CardImgOverlay>                    
+                    </Card>
                 </div>
             );
         });
@@ -44,10 +47,12 @@ class Webs extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <Media list>
-                        {webslist}
-                    </Media>
-
+                    {webslist}
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        {this.renderWeb(this.state.selectedWeb)}
+                    </div>
                 </div>
             </div>
 

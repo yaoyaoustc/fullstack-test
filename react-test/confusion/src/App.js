@@ -3,8 +3,16 @@ import React from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Webs from './components/WebsComponent';
 import './App.css';
+import { WEBS } from './shared/webs';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      webs: WEBS
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +21,7 @@ class App extends React.Component {
             <NavbarBrand href="/">Random Websites</NavbarBrand>
           </div>
         </Navbar>
-        <Webs/>
+        <Webs webs = {this.state.webs} />
       </div>
     )
   }
