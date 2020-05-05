@@ -1,7 +1,10 @@
 import React from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Webs from './WebsComponent';
-import WebDetails from './WebDetailsComponent';
+import Webs from './WebsComponent-func';
+// import Webs from './WebsComponent';
+import WebDetails from './WebDetailsComponent-func';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
+// import WebDetails from './WebDetailsComponent';
 import { WEBS } from '../shared/webs';
 
 class Main extends React.Component {
@@ -20,14 +23,11 @@ class Main extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Random Websites</NavbarBrand>
-          </div>
-        </Navbar>
+        <Header />
         <Webs webs = {this.state.webs} onClick={(webId) => this.onWebSelect(webId)}/>
         <WebDetails 
             selectedWeb = {this.state.webs.filter((web) => web.id === this.state.selectedWeb)[0]} />
+        <Footer />
       </div>
     )
   }

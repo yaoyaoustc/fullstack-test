@@ -2,9 +2,6 @@ import React from 'react';
 import { Media, Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class Webs extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const webslist = this.props.webs.map((web) => {

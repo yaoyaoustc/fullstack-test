@@ -1,5 +1,5 @@
 import React from 'react';
-import { Media, Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class WebDetails extends React.Component {
     constructor(props) {
@@ -58,9 +58,11 @@ class WebDetails extends React.Component {
         const commentItem = this.renderComments(selectedWeb.comments);
 
         return (
+            <div className="container">
             <div className="row">
                     {webItem}
                     {commentItem}
+            </div>
             </div>
         );
     }
