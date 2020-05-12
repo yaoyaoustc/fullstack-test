@@ -1,12 +1,13 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-function RenderWebDetail ({ web }) {
+function RenderWebDetail({ web }) {
     if (web != null)
         return (
-            <div className="col-12 col-md-5 m-1">
+            <div>
                 <Card>
-                    <CardImg top src={web.image} alt={web.name} />
+                    <CardImg src={web.image} alt={web.name} />
                     <CardBody>
                         <CardTitle>{web.name}</CardTitle>
                         <CardText>{web.description}</CardText>
@@ -34,31 +35,40 @@ const RenderComments = ({ comments }) => {
         );
     })
     return (
-        <div className="col-12 col-md-5 m-1">
+        <>
             <h4> Comments </h4>
             <ul className="list-unstyled">
                 {cmts}
             </ul>
-        </div>
+        </>
     );
 }
 
 const WebDetails = (props) => {
-    const selectedWeb = props.selectedWeb;
-
-    if (selectedWeb == null) {
-        return (
-            <div></div>
-        );
-    }
-
     return (
         <div className="container">
             <div className="row">
-                <RenderWebDetail web={selectedWeb} />
-                <RenderComments comments={selectedWeb.comments} />
+                <Breadcrumb>
+
+                    <BreadcrumbItem><Link to="/webs">Webs</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.web.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.web.name}</h3>
+                    <hr />
+                </div>
             </div>
-        </div>
+
+            <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderWebDetail web={props.web} />
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderComments comments={props.comments} />
+                    </div>
+
+                </div>
+            </div>
     );
 }
 
